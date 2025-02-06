@@ -1,0 +1,20 @@
+<h6>Parent to child </h6>
+<p>{{messageFromParent}}</p>
+<p>{{parentMessage2}}</p>
+<ul>
+    <li *ngFor="let item of numArrayFromParent">{{item}}</li>
+</ul>
+<ul>
+    <li *ngFor="let item of stringArrayFromParent">{{item}}</li>
+</ul>
+<ul>
+    <li *ngFor="let item of objOfArrayFromParent">{{ 'name: ' + item.name + ' age: ' + item.age }}
+    </li>
+</ul>
+
+<h6>Child to parent</h6>
+<button class="btn" (click)="sendResponseToParent()">get response from parent component</button>
+<button class="btn" (click)="sendArrayResponse()">get Array response from parent component</button>
+<button class="btn" (click)="sendObjResponse()">get Obj response from parent component</button>
+<button class="btn" (click)="sendArrayofObjResponse()">get Array of objs response from parent component</button>
+

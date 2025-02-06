@@ -1,0 +1,96 @@
+<!-- Directives : structural - *ngIf, *ngFor, *ngSwitch
+                  attribute - [ngClass], [ngStyle], [(ngModal)]-->
+<h6> Structural Directives in below 17v</h6>
+<div class="row">
+    <div class="col-12">
+        <div class="text-center">
+            <div class="btn-group">
+                <button type="button" class="btn" (click)=" buttonClicked('Roles')"
+                    [ngClass]="selectedComponet =='Roles' ? 'btn-success' : 'btn-primary'">Role</button>
+                <button type="button" class="btn btn-primary" (click)=" buttonClicked('Designation')"
+                    [ngClass]="selectedComponet == 'Designation' ? 'btn-success':'btn-primary'">Designation</button>
+            </div>
+            <!-- *ngIf -->
+            <div class="col-12" *ngIf="selectedComponet =='Roles'">
+                <app-roles></app-roles>
+            </div>
+            <div class="col-12" *ngIf="selectedComponet =='Designation'">
+                <app-designation></app-designation>
+            </div>
+        </div>
+    </div>
+    <!-- *ngFor -->
+    <h6>ngFor</h6>
+    <div calss="col-6">
+        <ul>
+            <li *ngFor="let item of items">{{item}}</li>
+        </ul>
+    </div>
+
+    <!-- *ngSwitch -->
+    <h6>ngSwitch</h6>
+    <div class="col-6">
+        <div [ngSwitch]="status">
+            <p *ngSwitchCase="'active'">The status is active</p>
+            <p *ngSwitchCase="'inActive'">The status is inactive</p>
+            <p *ngSwitchDefault> The status is unknown</p>
+        </div>
+    </div>
+</div>
+
+<h6> Structural Directives above 17v</h6>
+<!-- @if -->
+<h6>ngIf</h6>
+<div class="row">
+    <div class="col-12">
+        @if(selectedComponet =='Roles') {
+        <app-roles></app-roles>
+        }@else{
+        <app-designation></app-designation>
+        }
+    </div>
+    <!-- @for -->
+    <h6>ngFor</h6>
+    <div class="col-12">
+        @for(item of items; track item){
+        <p>{{item}}</p>
+        } <!-- from 17v track expression must in for directive -->
+    </div>
+    <!-- @switch -->
+    <h6>ngSwitch</h6>
+    <div class="col-12">
+        @switch(status){
+        @case("active") {
+        <p>The status is active</p>
+        }
+        @case("inActive"){
+        <p>The status is inactive</p>
+        }
+        @default{
+        <p> The status is unknown</p>
+        }
+        }
+    </div>
+</div>
+
+<h6>Attribute Directives</h6>
+<!-- ngStyle -->
+<div class="row">
+    <div class="col-6" [ngStyle]="{'height' : '140px', 'background-color' : backgroundColor, 'font-size': fontSize}">
+        Update Style property
+    </div>
+    <div class="col-6">
+        <button class="btn btn-primary" (click)="updateStyle()">
+            Update Style
+        </button>
+    </div>
+
+</div>
+<!-- costum  attribute Directives -->
+
+<p appHighlight highlightColor="blue">Costum attribute directive</p><!-- appHighlight is the selector of custom directive -->
+<p appHighlight>Costum attribute directive</p>
+<!-- costum  structural Directives -->
+<div *appCustomIf="isVisible">
+    costum structural directive it's visible only if isVisible true
+</div>
