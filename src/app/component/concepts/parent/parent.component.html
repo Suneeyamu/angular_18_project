@@ -1,7 +1,7 @@
 <p>parent works!</p>
 <!-- we can send any number of data not limit restrictions -->
 
-<app-child [messageFromParent]="parentMessage" parentMessage2 = "Hi, I'm from Parent" [numArrayFromParent]="parentNumArry" [stringArrayFromParent]="parentStringrry" [objOfArrayFromParent]="parentArrayofObj"
+<!-- <app-child [messageFromParent]="parentMessage" parentMessage2 = "Hi, I'm from Parent" [numArrayFromParent]="parentNumArry" [stringArrayFromParent]="parentStringrry" [objOfArrayFromParent]="parentArrayofObj"
            (message) ="recevingMsgfromChild($event)" (arrayMsg) = "recevingArray($event)" (objMsg)="recevingObj($event)"  ></app-child>
 <p>Hey, I recived msg from child : {{receivedMsg}}</p>
 
@@ -13,6 +13,6 @@
 <ul>
     <li *ngFor="let item of receivedArrayofObj">  {{item.name + item.age}}</li>
 </ul>
-<!-- 
+<!--  -->
 
 {ArrayofObjsMsg}="recevingArrayofObj($event)"  -->
